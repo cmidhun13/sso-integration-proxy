@@ -9,7 +9,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-@Configuration
+//@Configuration
 public class CorsFilterConfig {
 	/**
      * This special filter is needed so unauthorized request that are rejected by Spring security
