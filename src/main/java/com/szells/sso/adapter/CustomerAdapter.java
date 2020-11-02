@@ -38,11 +38,21 @@ public class CustomerAdapter {
         CustomerResponse customerResponse = objectMapper.reader().forType(CustomerResponse.class).readValue(response.getBody());
         System.out.println("The response of customer Id =================" + customerResponse.getCustomer().getCustomerId());
         CustomerHeaders cusHeaders = null;
-        cusHeaders = CustomerHeaders.builder().firstName(customerResponse.getCustomer().getFirstName())
+        if ("89".equals(customerId)){
+
+            cusHeaders = CustomerHeaders.builder().firstName("Selva")
+                    .lastName("Sakthivel")
+                    .userName("admin")
+                    .groups("system_admin")
+                    .email(customerResponse.getCustomer().getBusinessEmail()).secureKey("secure").build();
+            System.out.println("The response 89 ================="+response);
+        }else{
+            cusHeaders = CustomerHeaders.builder().firstName(customerResponse.getCustomer().getFirstName())
                     .lastName(customerResponse.getCustomer().getLastName())
                     .userName("admin")
                     .groups("system_admin")
                     .email(customerResponse.getCustomer().getBusinessEmail()).secureKey("secure").build();
+        }
         System.out.println("The response================="+response);
         return cusHeaders;
 
