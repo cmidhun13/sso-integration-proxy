@@ -11,7 +11,7 @@ import com.szells.sso.filter.SsoZuulFilter;
 
 //@EnableZuulProxy
 @ServletComponentScan
-//@ComponentScan({"com.szells.adapter"})
+
 @SpringBootApplication
 public class SsoApplication {
 
