@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-events
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sso-integration-proxy
+  template:
+    metadata:
+      labels:
+        app: sso-integration-proxy
+    spec:
+      containers:
+        - image: cmidhun/sso-integration-proxy:0.0.1-SNAPSHOT
+          name: sso-integration-proxy
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "500m"
+            limits:
+              memory: "500Mi"
+              cpu: "2000m"
+          ports:
+            - containerPort: 8082
